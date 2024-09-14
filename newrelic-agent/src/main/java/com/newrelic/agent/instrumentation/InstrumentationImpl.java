@@ -675,7 +675,7 @@ public class InstrumentationImpl implements Instrumentation {
         if (!classToRetransform.isAnnotationPresent(InstrumentedClass.class)) {
             retransformClass(classToRetransform);
         } else {
-            logger.log(Level.FINER, "Class ", classToRetransform, " already instrumented.");
+            logger.log(Level.FINER, "Class {0} already instrumented.", classToRetransform);
         }
     }
 
@@ -683,9 +683,9 @@ public class InstrumentationImpl implements Instrumentation {
         try {
             ServiceFactory.getCoreService().getInstrumentation().retransformClasses(classToRetransform);
         } catch (UnmodifiableClassException e) {
-            logger.log(Level.FINE, "Unable to retransform class ", classToRetransform, " : ", e.getMessage());
+            logger.log(Level.FINE, e, "Unable to retransform class {0} : {1} ", classToRetransform, e.getMessage());
         } catch (Throwable t) {
-            logger.log(Level.FINE, "An exception occurred while retransforming class ", classToRetransform, " : ",
+            logger.log(Level.FINE, t, "An exception occurred while retransforming class {0} : {1} ", classToRetransform,
                     t.getMessage());
         }
     }
