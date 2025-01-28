@@ -1,0 +1,29 @@
+import com.nr.builder.publish.PublishConfig
+
+plugins {
+    id("maven-publish")
+    id("signing")
+    id("kotlin")
+}
+
+dependencies {
+    implementation(project(":newrelic-weaver-api"))
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'New Relic Kotlin Weaver API', 'Implementation-Version': project.version
+    }
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+PublishConfig.config(
+        project,
+        "New Relic Java agent Kotlin Weaver API",
+        "The Kotlin Weaver API of the Java agent.") { it ->
+    it.from(components.java)
+}
