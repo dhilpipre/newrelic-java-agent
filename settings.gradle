@@ -48,6 +48,7 @@ include 'instrumentation-test'
 // Weaver plugins
 include 'newrelic-weaver-scala-api'
 include 'newrelic-weaver-scala'
+include 'newrelic-weaver-kotlin-api'
 
 // Tests
 include 'functional_test'
