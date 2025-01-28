@@ -22,6 +22,7 @@ repositories {
 dependencies {
     implementation(project(":newrelic-weaver-api"))
     implementation(project(":newrelic-weaver-scala-api"))
+    implementation(project(":newrelic-weaver-kotlin-api"))
 
     implementation("org.ow2.asm:asm-commons:$asmVersion")
     implementation("org.ow2.asm:asm-util:$asmVersion")
